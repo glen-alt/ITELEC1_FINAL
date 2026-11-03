@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra Connect - Community Service</title>
+    
+    <!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS Reset & Variables --- */
+        :root {
+            --primary-black: #1a1a1a;
+            --header-bg: #1e1e1e;
+            --event-border-red: #b91c1c; /* Red border for these events */
+            --bg-light: #f4f4f6; 
+            --text-dark: #222;
+            --text-muted: #666;
+            --orange-accent: #d97706;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arimo', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light); 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- Header & Navigation (Unchanged) --- */
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px; 
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 13px;
+            font-family: 'Arimo', sans-serif;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .btn-logout {
+            background-color: #2a2a2a;
+            color: white;
+            padding: 8px 20px;
+            border: 1px solid #444;
+            border-radius: 3px;
+            font-family: 'Arimo', sans-serif;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .page-container {
+            background-color: #ffffff; 
+            width: 90%;
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05); 
+            flex: 1; 
+        }
+
+        /* --- Section Titles (Oswald Font) --- */
+        .section-block {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--primary-black);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .section-subtitle {
+            font-family: 'Oswald', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            text-align: right;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* --- Event Cards (Red Borders) --- */
+        .event-card {
+            border: 1px solid var(--event-border-red);
+            border-radius: 3px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 15px;
+            background-color: #fafafa; /* Very slight grey background for header */
+            border-bottom: 1px solid var(--event-border-red); /* Red separator line */
+            font-family: 'Arimo', sans-serif;
+            font-size: 14px;
+        }
+
+        .event-name {
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .event-hours {
+            color: var(--event-border-red);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .event-hours::before {
+            content: '●'; 
+            font-size: 10px;
+        }
+
+        .event-body {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            font-family: 'Cousine', monospace;
+            font-size: 12px;
+        }
+
+        .event-details {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 5px 30px;
+            color: #333;
+        }
+
+        .event-details span:nth-child(odd) {
+            color: var(--text-muted);
+        }
+
+        .btn-status {
+            background: transparent;
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            font-family: 'Cousine', monospace; 
+            font-size: 10px;
+            color: var(--text-muted);
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        /* --- Lower Section (Grey Banner) --- */
+        .lower-section {
+            background-color: var(--bg-light);
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .lower-section h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 34px;
+            margin-bottom: 0;
+            text-transform: none;
+        }
+
+        .lower-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            background-color: #000;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Arimo', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-secondary {
+            background-color: #e5e7eb;
+            color: var(--text-dark);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Arimo', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* --- Footer (Unchanged) --- */
+        footer {
+            padding: 30px 40px;
+            border-top: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            background-color: #fff; 
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            color: var(--text-muted);
+        }
+
+        .social-icon {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #999;
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arimo', sans-serif;
+            font-size: 10px;
+            color: #666;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 60px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-family: 'Arimo', sans-serif;
+            font-size: 13px;
+        }
+
+        .footer-column a:first-child {
+            font-weight: 700;
+            color: #000;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            header, main, footer {
+                padding: 20px;
+            }
+            nav ul {
+                display: none; 
+            }
+            .event-body {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            .lower-section {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            footer {
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+            }
+            .footer-links {
+                gap: 30px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">
+            <img src="ITELEC1_LOGO.png" alt="Astra Connect Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Community Service</a></li>
+                <li><a href="#">Other Users</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><button class="btn-logout" onclick="logout()">Logout</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="page-container">
+        <main>
+            
+            <!-- School Community Service Section -->
+            <section class="section-block">
+                <h1 class="section-title">SCHOOL COMMUNITY SERVICE</h1>
+                <div class="section-subtitle">1ST SEM SY 2026 - 2027</div>
+
+                <!-- Event 1 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <span class="event-name">FOUNDATION WEEK DAY 2</span>
+                        <span class="event-hours">8 hours</span>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-details">
+                            <span>9:00 AM</span>
+                            <span>Mon, Sep 26, 2026</span>
+                            <span>05:00 PM</span>
+                            <span>Indoor Sports Arena & Activity Center (ISAAC)</span>
+                        </div>
+                        <button class="btn-status">NOT EXCUSED</button>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <span class="event-name">FROSH ORIENTATION</span>
+                        <span class="event-hours">8 hours</span>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-details">
+                            <span>9:00 AM</span>
+                            <span>Mon, Aug 03, 2026</span>
+                            <span>11:00 AM</span>
+                            <span>Multi-Purpose Hall (MPH)</span>
+                        </div>
+                        <button class="btn-status">NOT EXCUSED</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Department Community Service Section -->
+            <section class="section-block">
+                <h1 class="section-title">DEPARTMENT COMMUNITY SERVICE</h1>
+                <div class="section-subtitle">1ST SEM SY 2026 - 2027</div>
+
+                <!-- Event 3 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <span class="event-name">BSIT | Xmas Party</span>
+                        <span class="event-hours">6 hours</span>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-details">
+                            <span>9:00 AM</span>
+                            <span>Mon, Dec 14, 2026</span>
+                            <span>11:00 AM</span>
+                            <span>Mabini Hall (MH)</span>
+                        </div>
+                        <button class="btn-status">appeal letter</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lower Section (Grey Banner) -->
+            <section class="lower-section">
+                <h2>Section heading</h2>
+                <div class="lower-buttons">
+                    <button class="btn-primary">Button</button>
+                    <button class="btn-secondary">Secondary button</button>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="social-icons">
+                <div class="social-icon">f</div>
+                <div class="social-icon">in</div>
+                <div class="social-icon">yt</div>
+                <div class="social-icon">ig</div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <a href="#">Topic</a>
+                    <a href="#">Page</a>
+                    <a href="#">Page</a>
+                    <a href="#">Page</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">Topic</a>
+                    <a href="#">Page</a>
+                    <a href="#">Page</a>
+                    <a href="#">Page</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">Topic</a>
+                    <a href="#">Page</a>
+                    <a href="#">Page</a>
+                    <a href="#">Page</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function logout() {
+            const confirmLogout = confirm("Are you sure you want to log out?");
+            if (confirmLogout) {
+                alert("Logged out successfully.");
+            }
+        }
+    </script>
+</body>
+</html>
