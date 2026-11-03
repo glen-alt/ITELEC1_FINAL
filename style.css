@@ -1,0 +1,192 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.top-navigation ul {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.top-navigation a {
+    color:#333;
+    font-family: sans-serif;
+}
+
+.top-navigation .logout-btn {
+    background-color: black;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+}
+
+.top-navigation {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 10px 25px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #1a26ca;
+    background-color:   #e2dada;
+}
+
+.top-navigation .logo {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+.top-navigation .logo img {
+    width: 100px;
+    height: auto;
+    display: block;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-family: sans-serif;
+    font-size: 40px;
+}
+
+hr {
+    width: 95%;
+    margin: 10px auto;
+    border: none;
+    height: 2px;
+    background-color: black;
+}
+
+.logo_Gap {
+    width: 50%;
+    margin-top: 50px;
+}
+
+.logo_Gap img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+}
+
+.logo_Gap p {
+    font-size: 20px;
+    color: black;
+    margin-top: 20px;
+    text-align: justify;
+    font-family: sans-serif;
+    margin-right: 50px;
+}
+
+.front-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px 30px;
+}
+
+.create-account {
+    width: 40%;
+    max-width: 400px;
+    padding: 20px;
+    border: 2px solid #1a26ca;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-right: 100px;
+}
+
+.create-account h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.create-account p {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+.create-account form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding-left: 10px;
+}
+
+.create-account input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.create-account button {
+    grid-column: 1 / -1;
+    color: white;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.create-account .google-btn {
+   color: white;
+   background-color: black; 
+   border: 2px solid black;
+   border-radius: 5px;
+}
+
+.logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 30px;
+}
+
+.logo_start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo_start img {
+    width: 300px;
+    height: auto;
+}
+
+.logo_start p {
+    font-size: 25px;
+    color: black;
+    margin-top: 5px;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.logo_start button {
+    color: white;
+    background-color: rgb(11, 41, 211);
+    border-radius: 5px;
+    border: 2px solid rgb(11, 41, 211);
+    font-size: 25px;
+}
+
+.bottom-section {
+    width: 100%;
+    padding: 10px 10px;
+    background-color: #e2dada;
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: 90px;
+    border-top: 2px solid #1a26ca;
+}
+
+.bottom-section h2 {
+    font-size: 28px;
+     font-family: sans-serif;
+}

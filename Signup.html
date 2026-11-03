@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ASTRA CONNECT</title>
+</head>
+
+<body>
+<nav class="top-navigation">
+    <a href="index.html" class="logo">
+    <img src="images/ITELEC1_LOGO.png" alt="Astra Connect Logo"> </a>
+    <ul>
+    <a href="Student/Home.html">Home</a>
+    <a href="Student/Settings.html">Settings</a>
+    <a href="logout.php" class="logout-btn">Log-out</a>
+    </ul>
+</nav>
+<h1>WELCOME TO ASTRA CONNECT</h1>
+<hr>
+<div class="front-content">
+
+<div class="logo_Gap">
+    <a href="index.html">
+    <img src="images/ITELEC1_GAP.png" alt="Astra Gap Logo"></a>
+    <p>
+    Astra Connect is a digital platform that simplifies event registration
+    and attendance tracking while keeping students informed about upcoming
+    events, missed activities, and student-organized events.
+    </p>
+</div>
+
+<div class="create-account">
+    <h2>CREATE AN ACCOUNT</h2>
+    <form>
+        <input type="text" placeholder="School ID" required>
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name" required>
+        <input type="password" placeholder="Password" required>
+        <input type="text" placeholder="Section (if applicable)" >
+        <input type="text" placeholder="Department (if applicable)" >
+        <input type="number" placeholder="Year Level (if applicable)">
+        <input type="text" placeholder="Course (if applicable)">
+        <button type="submit" onclick="window.location.href='Student/StudentLogin.html'">Create account as STUDENT</button>
+        <button type="submit" onclick="window.location.href='Event/EventLogin.html'">Create account as EVENT ORGANIZER</button>
+
+        <p>or register with</p>
+        <button type="submit" class="google-btn"> Google Account</button>
+
+     </form>
+    </div>
+</div>
+
+<section class="bottom-section">
+    <h2>Astra Connect | Bridging the Gap Between Students and Events</h2>
+</section>
+
+</body>
+</html>
