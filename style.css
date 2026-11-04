@@ -11,12 +11,12 @@ body {
 }
 
 .top-navigation a {
-    color:#333;
+    color: white;
     font-family: sans-serif;
 }
 
 .top-navigation .logout-btn {
-    background-color: black;
+    background-color: rgb(94, 79, 79);
     padding: 4px 8px;
     border-radius: 4px;
     color: white;
@@ -31,7 +31,7 @@ body {
     padding: 10px 25px;
     box-sizing: border-box;
     border-bottom: 2px solid #1a26ca;
-    background-color:   #e2dada;
+    background-color:   black;
 }
 
 .top-navigation .logo {
@@ -179,7 +179,7 @@ hr {
 .bottom-section {
     width: 100%;
     padding: 10px 10px;
-    background-color: #e2dada;
+    background-color: black;
     text-align: center;
     box-sizing: border-box;
     margin-top: 90px;
@@ -188,5 +188,6 @@ hr {
 
 .bottom-section h2 {
     font-size: 28px;
-     font-family: sans-serif;
+    font-family: sans-serif;
+    color: white;
 }
