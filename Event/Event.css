@@ -1,0 +1,536 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.top-navigation ul {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.top-navigation a {
+    color:white;
+    font-family: sans-serif;
+}
+
+.top-navigation .logout-btn {
+    background-color: rgb(94, 79, 79);
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+}
+
+.top-navigation {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 10px 25px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #1a26ca;
+    background-color:   black;
+}
+
+.top-navigation .logo {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+.top-navigation .logo img {
+    width: 100px;
+    height: auto;
+    display: block;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-family: sans-serif;
+    font-size: 40px;
+}
+
+hr {
+    width: 95%;
+    margin: 10px auto;
+    border: none;
+    height: 2px;
+    background-color: black;
+}
+
+.logo_Gap {
+    width: 50%;
+    margin-top: 50px;
+}
+
+.logo_Gap img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+}
+
+.logo_Gap p {
+    font-size: 20px;
+    color: black;
+    margin-top: 20px;
+    text-align: justify;
+    font-family: sans-serif;
+    margin-right: 50px;
+}
+
+.front-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px 30px;
+}
+
+.create-account {
+    width: 40%;
+    max-width: 400px;
+    padding: 20px;
+    border: 2px solid #1a26ca;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-right: 100px;
+}
+
+.create-account h2 {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.create-account p {
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+.create-account form {
+    display: grid;
+    gap: 8px;
+    padding-left: 10px;
+}
+
+.create-account input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.create-account button {
+    grid-column: 1 / -1;
+    color: white;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.create-account .google-btn {
+   color: white;
+   background-color: black; 
+   border: 2px solid black;
+   border-radius: 5px;
+}
+
+.bottom-section {
+    width: 100%;
+    padding: 10px 10px;
+    background-color: black;
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: 30px;
+    border-top: 2px solid #1a26ca;
+}
+
+.bottom-section h2 {
+    font-size: 28px;
+    font-family: sans-serif;
+    color: white;
+}
+
+/* Home */
+.main-container {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    flex: 1;
+    min-height: 80vh;
+}
+
+.profile-card {
+    border: 1px solid #4b32c3;
+    border-right: 4px solid #4b32c3;
+    border-radius: 4px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.profile-info h3 {
+    font-family: sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.profile-info p {
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.profile-info span {
+    font-weight: 400;
+}
+
+.avatar-placeholder {
+    width: 110px;
+    height: 120px;
+    background-color: #e5e7eb;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.avatar-placeholder::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #6b7280;
+    border-radius: 50%;
+    top: 20px;
+    left: 30px;
+}
+
+.avatar-placeholder::after {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 60px;
+    background-color: #6b7280;
+    border-radius: 50px 50px 0 0;
+    top: 80px;
+    left: 10px;
+}
+
+.event-form-box {
+    border: 1px solid #4b32c3;
+    border-radius: 4px;
+    padding: 25px;
+    background-color: #fff;
+    margin-bottom: 50px;
+}
+
+.event-form-box h4 {
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 40px;
+}
+
+.form-grid input {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-family: sans-serif;
+    font-size: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-add {
+    grid-column: 2 / 3;
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.lower-section {
+    background-color: #f4f4f6;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 60px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #222;
+    font-family: sans-serif;
+    font-size: 13px;
+}
+
+.footer-column a:first-child {
+    font-weight: 700;
+}
+
+/* Registration */
+.events-container {
+    margin-bottom: 60px;
+}
+
+.event-card-blue {
+    border: 1px solid #4b32c3;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.event-header-blue {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #f9f9f9; 
+    border-bottom: 1px solid #4b32c3;
+    font-family: 'Arimo', sans-serif;
+    font-size: 14px;
+}
+
+.event-header-blue .event-name {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.event-header-blue .event-hours {
+    color: #b91c1c;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.event-header-blue .event-hours::before {
+    content: '●'; 
+    font-size: 10px;
+}
+
+.event-body-blue {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    font-family: 'Cousine', monospace;
+    font-size: 12px;
+}
+
+.event-details-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 5px 30px;
+    color: #666;
+}
+
+.btn-register {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 4px 15px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 11px;
+    color: #666;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background 0.3s;
+}
+
+.btn-register:hover {
+    background: #f0f0f0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Cousine&family=Oswald:wght@500;700&display=swap');
+
+/* Sum of EVENT and CS */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2px solid var(--primary-black, black);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+.page-header h1 {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    font-size: 34px;
+    text-transform: uppercase;
+}
+.page-header h3 {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.event-card-blue {
+    border: 1px solid #4b32c3;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+.event-header-blue {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #fafafa; 
+    border-bottom: 1px solid #4b32c3;
+    font-family: 'Arimo', sans-serif;
+    font-size: 14px;
+}
+.event-header-blue .event-name {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.event-header-blue .event-hours {
+    color: #b91c1c;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.event-header-blue .event-hours::before { content: '●'; font-size: 10px; }
+
+.event-body-blue {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    font-family: 'Cousine', monospace;
+    font-size: 12px;
+}
+.event-details-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 5px 30px;
+    color: #666;
+}
+
+.detail-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+.detail-header-container h1 {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    font-size: 36px;
+    text-transform: uppercase;
+}
+.btn-back {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+}
+.event-meta {
+    font-family: 'Cousine', monospace;
+    font-size: 11px;
+    color: #666;
+    margin-bottom: 25px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2px 30px;
+}
+
+/* --- Attendance Lists --- */
+.attendance-box {
+    border: 1px solid;
+    border-radius: 2px;
+    margin-bottom: 40px;
+    background-color: #fff;
+}
+.present-box { border-color: #4ade80; } /* Green */
+.absent-box { border-color: #f87171; } /* Red */
+
+.attendance-header {
+    padding: 10px 15px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    color: #444;
+}
+.attendance-subheader {
+    display: flex;
+    gap: 60px;
+    font-weight: 400;
+    text-transform: none;
+}
+
+.attendance-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    font-family: 'Arimo', sans-serif;
+    font-size: 12px;
+}
+.attendance-row:last-child { border-bottom: none; }
+
+.student-name {
+    font-weight: 700;
+    width: 50%;
+}
+.student-info {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #333;
+}
+.btn-add-cs {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 4px 15px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 11px;
+    color: #666;
+    cursor: pointer;
+    border-radius: 3px;
+}
