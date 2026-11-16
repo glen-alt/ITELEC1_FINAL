@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-
+    <script src="./home.js" defer></script>
     <style>
         /* --- CSS Reset & Variables --- */
         :root {
@@ -464,14 +464,15 @@
     <header>
         <!-- UPDATED: Image Logo replaced the text -->
         <div class="logo">
-            <img src="/images/ITELEC1_LOGO.png" alt="Astra Connect Logo">
+            <img src="../images/ITELEC1_LOGO.png" alt="Astra Connect Logo">
         </div>
         
         <nav>
             <ul>
-                <li><a href="#">Community Service</a></li>
-                <li><a href="#">Other Users</a></li>
-                <li><a href="#">Settings</a></li>
+                <li><a href="./Home.html">Home</a></li>
+                <li><a href="./CS.html">Community Service</a></li>
+                <li><a href="./User.html">Other Users</a></li>
+                <li><a href="./Events.html">Events</a></li>
                 <li><button class="btn-logout" onclick="logout()">Logout</button></li>
             </ul>
         </nav>
@@ -486,124 +487,38 @@
                 <h1>STUDENT PROFILE</h1>
                 <div class="profile-card">
                     <div class="profile-info">
-                        <h3>De Guzman, Kyan Matthew, Roxas</h3>
-                        <p>Program : <span>Bachelor of Science and Information Technology</span></p>
-                        <p>Year : <span>3rd Year</span></p>
-                        <p>Section : <span>Section 3A</span></p>
-                        <button class="btn-generate" onclick="generateQR()">Generate QR</button>
+                        <h3 id="username"></h3>
+                        <p>Program : <span id="department">Bachelor of Science and Information Technology</span></p>
+                        <p>Year : <span><span id="year"></span> Year</span></p>
+                        <p>Section : <span id="section"></span></p>
                     </div>
                     <div class="profile-image-container">
                         <div class="avatar"></div>
-                        <p class="student-id">S2825102745</p>
+                        <p class="student-id"></p>
                     </div>
                 </div>
             </section>
 
             <!-- Upcoming Events Section -->
-            <section class="events-section">
+            <section id="events-section" class="events-section">
                 <div class="events-header">
                     <h2>UPCOMING SCHOOL EVENTS</h2>
                 </div>
 
-                <!-- Event 1 -->
-                <div class="event-item">
-                    <div class="event-title">BSIT | Day with the Chair</div>
-                    <div class="event-details-grid">
-                        <span>10:00 AM</span>
-                        <span>5:00 PM</span>
-                        <span>Jan 06, 2026</span>
-                        <span>LST Building 2020</span>
-                    </div>
-                    <button class="btn-action">closed</button>
-                </div>
-
-                <!-- Event 2 -->
-                <div class="event-item">
-                    <div class="event-title">BSIT | Xmas Party</div>
-                    <div class="event-details-grid">
-                        <span>10:00 AM</span>
-                        <span>5:00 PM</span>
-                        <span>Jan 06, 2026</span>
-                        <span>LST Building 2020</span>
-                    </div>
-                    <button class="btn-action">closed</button>
-                </div>
-            </section>
-
-            <!-- Lower Section -->
-            <section class="lower-section">
-                <div class="lower-header">
-                    <h2>Section heading</h2>
-                    <div class="lower-buttons">
-                        <button class="btn-primary">Button</button>
-                        <button class="btn-secondary">Secondary button</button>
-                    </div>
-                </div>
                 
-                <div class="content-grid">
-                    <div class="grid-box">topic</div>
-                    <div class="grid-box">page</div>
-                    <div class="grid-box">page</div>
-                    
-                    <div class="grid-box">page</div>
-                    <div class="grid-box">page</div>
-                    <div class="grid-box">page</div>
-                </div>
             </section>
 
         </main>
-
-        <!-- Footer -->
-        <footer>
-            <div class="social-icons">
-                <div class="social-icon">f</div>
-                <div class="social-icon">in</div>
-                <div class="social-icon">yt</div>
-                <div class="social-icon">ig</div>
-            </div>
-            <div class="footer-links">
-                <div class="footer-column">
-                    <a href="#">Topic</a>
-                    <a href="#">Page</a>
-                    <a href="#">Page</a>
-                    <a href="#">Page</a>
-                </div>
-                <div class="footer-column">
-                    <a href="#">Topic</a>
-                    <a href="#">Page</a>
-                    <a href="#">Page</a>
-                    <a href="#">Page</a>
-                </div>
-                <div class="footer-column">
-                    <a href="#">Topic</a>
-                    <a href="#">Page</a>
-                    <a href="#">Page</a>
-                    <a href="#">Page</a>
-                </div>
-            </div>
-        </footer>
     </div>
 
     <!-- JavaScript -->
     <script>
-        function generateQR() {
-            const btn = document.querySelector('.btn-generate');
-            const originalText = btn.textContent;
-            
-            btn.textContent = "Generating...";
-            btn.style.opacity = "0.7";
-            
-            setTimeout(() => {
-                alert("QR Code generated successfully for Kyan Matthew!");
-                btn.textContent = originalText;
-                btn.style.opacity = "1";
-            }, 1000);
-        }
-
         function logout() {
             const confirmLogout = confirm("Are you sure you want to log out?");
             if (confirmLogout) {
                 alert("Logged out successfully.");
+                localStorage.removeItem('user');
+                window.location.href = "./Login.html";
             }
         }
     </script>

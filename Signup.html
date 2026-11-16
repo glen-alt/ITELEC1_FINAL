@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="Signup.js" defer></script>
     <title>ASTRA CONNECT</title>
 </head>
 
@@ -11,11 +12,6 @@
 <nav class="top-navigation">
     <a href="index.html" class="logo">
     <img src="images/ITELEC1_LOGO.png" alt="Astra Connect Logo"> </a>
-    <ul>
-    <a href="Student/Home.html">Home</a>
-    <a href="Student/Settings.html">Settings</a>
-    <a href="logout.php" class="logout-btn">Log-out</a>
-    </ul>
 </nav>
 <h1>WELCOME TO ASTRA CONNECT</h1>
 <hr>
@@ -33,21 +29,20 @@
 
 <div class="create-account">
     <h2>CREATE AN ACCOUNT</h2>
-    <form>
-        <input type="text" placeholder="School ID" required>
-        <input type="text" placeholder="First Name" required>
-        <input type="text" placeholder="Last Name" required>
-        <input type="password" placeholder="Password" required>
-        <input type="text" placeholder="Section (if applicable)" >
-        <input type="text" placeholder="Department (if applicable)" >
-        <input type="number" placeholder="Year Level (if applicable)">
-        <input type="text" placeholder="Course (if applicable)">
-        <button type="submit" onclick="window.location.href='Student/StudentLogin.html'">Create account as STUDENT</button>
-        <button type="submit" onclick="window.location.href='Event/EventLogin.html'">Create account as EVENT ORGANIZER</button>
-
-        <p>or register with</p>
-        <button type="submit" class="google-btn"> Google Account</button>
-
+    <form id="signupform">
+        <input name="schoolid" type="text" placeholder="School ID" required>
+        <input name="username" type="text" placeholder="Username" required>
+        <input name="password" type="password" placeholder="Password" required>   
+        <input name="email" type="text" placeholder="Email" required>
+        <input name="section" type="text" placeholder="Section (if applicable)" >
+        <input name="department" type="text" placeholder="Department (if applicable)" >
+        <input name="year" type="number" inputmode="numeric" placeholder="Year Level (if applicable)">
+        <input name="course" type="text" placeholder="Course (if applicable)">
+        <button id="submitAsStudent" type="submit">Register as STUDENT</button>
+        <button id="submitAsEventOrganizer" type="submit">Register as EVENT ORGANIZER</button>
+        <p>or</p>
+        <button onclick="window.location.href = './Student/Login.html'">Login as STUDENT</button>
+        <button onclick="window.location.href = './Event/EventLogin.html'">Login as EVENT ORGANIZER</button>
      </form>
     </div>
 </div>

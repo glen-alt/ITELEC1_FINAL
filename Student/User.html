@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="student.css">
+    <script src="user.js" defer></script>
+    <title>ASTRA CONNECT</title>
+</head>
+
+<body>
+<nav class="top-navigation">
+    <a href="/..index.html" class="logo">
+    <img src="../images/ITELEC1_LOGO.png" alt="Astra Connect Logo"> </a>
+    <ul>
+                <li><a href="./Home.html">Home</a></li>
+                <li><a href="./CS.html">Community Service</a></li>
+                <li><a href="./User.html">Other Users</a></li>
+                <li><a href="./Events.html">Events</a></li>
+                <li><button class="btn-logout" onclick="logout()">Logout</button></li>
+            </ul>
+</nav>
+
+<h1 class = title>Search</h1>
+<hr>
+
+<div class="search-bar">
+  <select id="search-category">
+    <option value="all">All</option>
+    <option value="username">Username</option>
+    <option value="schoolid">School ID</option>
+    <option value="email">Email</option>
+    <option value="role">Role</option>
+    <option value="section">Section</option>
+    <option value="department">Department</option>
+  </select>
+
+  <input type="text" id="search-input" placeholder="Search other users" />
+
+  <select id="search-order">
+    <option value="asc">A → Z (Asc)</option>
+    <option value="desc">Z → A (Desc)</option>
+  </select>
+</div> 
+
+<section class="users-section" id="users-section"></section>
+
+
+
+<section class="bottom-section">
+    <h2>Astra Connect | Bridging the Gap Between Students and Events</h2>
+</section>
+
+</body>
+</html>

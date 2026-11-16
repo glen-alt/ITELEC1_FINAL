@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Event.css">
+    <script src="createevent.js" defer></script>
+    <title>ASTRA CONNECT - Event Account</title>
+</head>
+
+<body>
+
+<nav class="top-navigation">
+    <a href="../index.html" class="logo">
+        <img src="../images/ITELEC1_LOGO.png" alt="Astra Connect Logo"> 
+    </a>
+    <ul>
+                <a href="./Home.html">Home</a>
+                <a href="./CS.html">Community Service</a>
+                <a href="./User.html">Other Users</a>
+                <a href="./Events.html">Events</a>
+                <a href="./CreateEvent.html">Create Event</a>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </ul>
+</nav>
+
+</nav>
+<h1 class = title>Create Event</h1>
+<hr>
+
+
+
+    <div class="event-form-box">
+  <h4>Fill out event details</h4>
+
+  <div class="form-grid">
+    <input type="text" id="event-name" placeholder="Event Name">
+
+    <input type="text" id="event-details" placeholder="Event Details">
+    <select id="event-visibility">
+      <option value="Open">Open for all</option>
+      <option value="Closed">Closed</option>
+    </select>
+
+    <input type="text" id="event-venue" placeholder="Event Venue">
+    <select id="event-type">
+      <option value="Official">Official</option>
+      <option value="Unofficial">Unofficial</option>
+    </select>
+
+    <input type="date" id="event-date">
+    <input type="number" id="event-comserve" placeholder="Community service hours" min="0">
+
+    <label>Registration time
+      <input type="time" id="reg-start"> to <input type="time" id="reg-end">
+    </label>
+    <label>Closing time
+      <input type="time" id="close-start"> to <input type="time" id="close-end">
+    </label>
+
+    <input type="text" id="event-departments" placeholder="Required Departments (e.g. BSIT, BSCS) - blank = none">
+<input type="text" id="event-years" placeholder="Required Years (e.g. 1, 2) - blank = none">
+<input type="text" id="event-sections" placeholder="Required Sections (e.g. A, B) - blank = none">
+
+    <button class="btn-add" type="button" onclick="addEvent()">ADD</button>
+  </div>
+</div>
+</div>
+
+<section class="bottom-section">
+    <h2>Astra Connect | Bridging the Gap Between Students and Events</h2>
+</section>
+
+    <script>
+        function logout() {
+            const confirmLogout = confirm("Are you sure you want to log out?");
+            if (confirmLogout) {
+                alert("Logged out successfully.");
+                localStorage.removeItem('user');
+                window.location.href = "./EventLogin.html";
+            }
+        }
+    </script>
+</body>
+</html>

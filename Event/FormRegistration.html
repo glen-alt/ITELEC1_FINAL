@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Event.css"> 
+    <script src="formregistration.js" defer></script>
+    <title>ASTRA CONNECT - Event Account</title>
+</head>
+
+<body>
+
+<nav class="top-navigation">
+    <a href="../index.html" class="logo">
+        <img src="../images/ITELEC1_LOGO.png" alt="Astra Connect Logo"> 
+    </a>
+    <ul>
+                <a href="./Home.html">Home</a>
+                <a href="./CS.html">Community Service</a>
+                <a href="./User.html">Other Users</a>
+                <a href="./Events.html">Events</a>
+                <a href="./CreateEvent.html">Create Event</a>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </ul>
+</nav>
+
+<h1 class="title" id="event-title">EVENT</h1>
+<hr>
+<div class="event-form-box">
+  <h4>REGISTRATION FORM</h4>
+  <div class="form-grid">
+    <input type="text" id="student-id" placeholder="Student Number/ID" readonly>
+    <input type="text" id="student-name" placeholder="Name">
+  </div>
+  <button class="btn-add" type="button" onclick="registerForEvent()">REGISTER</button>
+</div>
+
+<section class="form-bottom-section">
+    <h2>Astra Connect | Bridging the Gap Between Students and Events</h2>
+</section>
+<script>
+        function logout() {
+            const confirmLogout = confirm("Are you sure you want to log out?");
+            if (confirmLogout) {
+                alert("Logged out successfully.");
+                localStorage.removeItem('user');
+                window.location.href = "./EventLogin.html";
+            }
+        }
+    </script>
+</body>
+</html>

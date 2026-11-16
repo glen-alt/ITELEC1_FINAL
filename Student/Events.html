@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Event.css">
+    <script src="events.js" defer></script>
+    <title>ASTRA CONNECT - List of Events</title>
+</head>
+
+<body>
+
+<nav class="top-navigation">
+    <a href="../index.html" class="logo">
+        <img src="../images/ITELEC1_LOGO.png" alt="Astra Connect Logo"> 
+    </a>
+    <ul>
+                <a href="./Home.html">Home</a>
+                <a href="./CS.html">Community Service</a>
+                <a href="./User.html">Other Users</a>
+                <a href="./Events.html">Events</a>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </ul>
+</nav>
+
+<div class="main-container">
+  <h1 class="title">EVENTS</h1>
+  <hr>
+
+  <div class="search-bar">
+    <select id="search-category">
+      <option value="all">All</option>
+      <option value="name">Event Name</option>
+      <option value="details">Details</option>
+      <option value="type">Type</option>
+      <option value="date">Date</option>
+      <option value="location">Location</option>
+      <option value="year">Year</option>
+      <option value="section">Section</option>
+      <option value="department">Department</option>
+    </select>
+
+    <input type="text" id="search-input" placeholder="Search events" />
+
+    <select id="search-order">
+      <option value="asc">Asc</option>
+      <option value="desc">Desc</option>
+    </select>
+  </div>
+
+  <div class="events-container" id="events-container"></div>
+</div>
+
+<section class="bottom-section">
+    <h2>Astra Connect | Bridging the Gap Between Students and Events</h2>
+</section>
+<script>
+        function logout() {
+            const confirmLogout = confirm("Are you sure you want to log out?");
+            if (confirmLogout) {
+                alert("Logged out successfully.");
+                localStorage.removeItem('user');
+                window.location.href = "./EventLogin.html";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra Connect - Student Profile</title>
+    
+    <!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <script src="./home.js" defer></script>
+    <style>
+        /* --- CSS Reset & Variables --- */
+        :root {
+            --primary-black: #1a1a1a;
+            --header-bg: #1e1e1e;
+            --border-purple: #4b32c3; 
+            --event-border: #e5e7eb;
+            --bg-light: #f4f4f6; /* This is the grey background */
+            --text-dark: #222;
+            --text-muted: #666;
+            --orange-accent: #d97706;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arimo', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light); 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px; /* Slightly reduced vertical padding to fit logo nicely */
+        }
+
+        /* --- UPDATED LOGO STYLING --- */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px; /* Adjust this value if you want it larger/smaller */
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+        /* ----------------------------- */
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 13px;
+            font-family: 'Arimo', sans-serif;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .btn-logout {
+            background-color: #2a2a2a;
+            color: white;
+            padding: 8px 20px;
+            border: 1px solid #444;
+            border-radius: 3px;
+            font-family: 'Arimo', sans-serif;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        /* --- MAIN CONTAINER (White box in the middle) --- */
+        .page-container {
+            background-color: #ffffff; 
+            width: 90%;
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05); 
+            flex: 1; 
+        }
+
+        h1, h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Student Profile Section --- */
+        .profile-section {
+            margin-bottom: 50px;
+        }
+
+        .profile-section h1 {
+            border-bottom: 2px solid var(--primary-black);
+            padding-bottom: 10px;
+        }
+
+        .profile-card {
+            border: 1px solid var(--border-purple);
+            border-right: 4px solid var(--border-purple);
+            border-radius: 4px;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            margin-top: 25px;
+        }
+
+        .profile-info h3 {
+            font-family: 'Arimo', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .profile-info p {
+            font-family: 'Arimo', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .profile-info p span {
+            font-weight: 400;
+            color: var(--text-dark);
+            margin-left: 10px;
+        }
+
+        .btn-generate {
+            background-color: var(--primary-black);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-family: 'Arimo', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-generate:hover {
+            background-color: #333;
+        }
+
+        .profile-image-container {
+            text-align: center;
+            padding-right: 20px;
+        }
+
+        .avatar {
+            width: 110px;
+            height: 120px;
+            background-color: #d1d5db;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .avatar::before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #6b7280;
+            border-radius: 50%;
+            top: 20px;
+        }
+        .avatar::after {
+            content: '';
+            position: absolute;
+            width: 90px;
+            height: 60px;
+            background-color: #6b7280;
+            border-radius: 50px 50px 0 0;
+            top: 80px;
+        }
+
+        .student-id {
+            font-family: 'Arimo', sans-serif;
+            font-size: 14px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* --- Upcoming Events Section --- */
+        .events-section {
+            margin-bottom: 50px;
+        }
+
+        .events-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 2px solid var(--primary-black);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .events-header h2 {
+            margin-bottom: 0;
+            font-size: 34px;
+        }
+
+        .event-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .event-item:last-child {
+            border-bottom: none;
+        }
+
+        .event-title {
+            font-family: 'Arimo', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            width: 30%;
+        }
+
+        .event-details-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 5px 40px;
+            font-family: 'Cousine', monospace;
+            font-size: 12px;
+            color: #333;
+            flex: 1;
+        }
+
+        .event-details-grid span:nth-child(even) {
+            text-align: left;
+        }
+
+        .btn-action {
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 4px 15px;
+            font-family: 'Arimo', sans-serif;
+            font-size: 12px;
+            color: var(--text-dark);
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        /* --- Lower Section --- */
+        .lower-section {
+            padding: 40px 0;
+            margin-bottom: 20px;
+        }
+
+        .lower-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .lower-header h2 {
+            margin-bottom: 0;
+            text-transform: none;
+        }
+
+        .lower-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            background-color: #000;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Arimo', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-secondary {
+            background-color: #fff;
+            color: var(--text-dark);
+            padding: 10px 25px;
+            border: 1px solid #000;
+            border-radius: 4px;
+            font-family: 'Arimo', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .grid-box {
+            border: 1px solid #ccc;
+            padding: 40px 20px;
+            text-align: center;
+            font-family: 'Cousine', monospace;
+            font-size: 12px;
+            color: var(--text-muted);
+            background-color: #fff;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 30px 40px;
+            border-top: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            background-color: #fff; 
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            color: var(--text-muted);
+        }
+
+        .social-icon {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #999;
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arimo', sans-serif;
+            font-size: 10px;
+            color: #666;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 60px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-family: 'Arimo', sans-serif;
+            font-size: 13px;
+        }
+
+        .footer-column a:first-child {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 900px) {
+            .event-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            .event-title {
+                width: 100%;
+            }
+            .event-details-grid {
+                width: 100%;
+            }
+            .btn-action {
+                align-self: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-container {
+                width: 100%;
+                padding: 20px;
+            }
+
+            nav ul {
+                display: none; 
+            }
+
+            .profile-card {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .profile-info p {
+                text-align: left;
+            }
+
+            .lower-header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr; 
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+            }
+
+            .footer-links {
+                gap: 30px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <!-- UPDATED: Image Logo replaced the text -->
+        <div class="logo">
+            <img src="../images/ITELEC1_LOGO.png" alt="Astra Connect Logo">
+        </div>
+        
+        <nav>
+           <ul>
+                <li><a href="./Home.html">Home</a></li>
+                <li><a href="./CS.html">Community Service</a></li>
+                <li><a href="./User.html">Other Users</a></li>
+                <li><a href="./Events.html">Events</a></li>
+                <li><a href="./CreateEvent.html">Create Event</a></li>
+                <li><button class="btn-logout" onclick="logout()">Logout</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="page-container">
+        <main>
+            
+            <!-- Student Profile Section -->
+            <section class="profile-section">
+                <h1>STUDENT PROFILE</h1>
+                <div class="profile-card">
+                    <div class="profile-info">
+                        <h3 id="username"></h3>
+                        <p>Program : <span id="department">Bachelor of Science and Information Technology</span></p>
+                        <p>Year : <span><span id="year"></span> Year</span></p>
+                        <p>Section : <span id="section"></span></p>
+                    </div>
+                    <div class="profile-image-container">
+                        <div class="avatar"></div>
+                        <p class="student-id"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Upcoming Events Section -->
+            <section id="events-section" class="events-section">
+                <div class="events-header">
+                    <h2>UPCOMING SCHOOL EVENTS</h2>
+                </div>
+
+                
+            </section>
+
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function logout() {
+            const confirmLogout = confirm("Are you sure you want to log out?");
+            if (confirmLogout) {
+                alert("Logged out successfully.");
+                localStorage.removeItem('user');
+                window.location.href = "./EventLogin.html";
+            }
+        }
+    </script>
+</body>
+</html>
